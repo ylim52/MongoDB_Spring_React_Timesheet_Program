@@ -1,0 +1,23 @@
+server:
+  port: 8081
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
+
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: person
+          uri: lb://person
+          predicates:
+            - Path=/person/**
+        - id: timesheet
+          uri: lb://timesheet
+          predicates:
+            - Path=/timesheet/**
