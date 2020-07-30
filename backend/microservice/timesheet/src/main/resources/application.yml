@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: timesheet
+
+server:
+  port: 7777
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+
+user:
+  role: timesheet hello
